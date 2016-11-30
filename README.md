@@ -1,5 +1,6 @@
 ![HERHACKLES](https://github.com/psych0pat/HERHACKLES/blob/master/res/title.png?raw=true)
 
+
 Herhackles is a game where you have to save the princess. Yeah I know it's original...
 
 BUT we're in 2016 and in 2016, heroes have exchanged their swords for a more powerful weapon : a laptop ! <sup>(ok, some of them are still attached to their old-fashioned weapons)</sup>
@@ -7,7 +8,7 @@ BUT we're in 2016 and in 2016, heroes have exchanged their swords for a more pow
 Ready to hack the game ?
 
 ## How to play
- 
+You can download the game directly from [https://psych0pat.itch.io/herhackles](itch.io). Only Windows/OSX atm.
 
 If you're lost, use `help`, `get elements` and `get attr` when you're on the console
 
