@@ -15,6 +15,7 @@ If you're lost, use `help`, `get elements` and `get attr` when you're on the con
 ## Made with
  * [Godot](https://godotengine.org/)
  * Photoshop & Gimp
+ * [Tiled](http://www.mapeditor.org/)
  * [Bfxr](http://bfxr.net)
 
 ## Credits
