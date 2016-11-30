@@ -1,0 +1,7 @@
+*.flags
+.fscache
+*.png
+*.scn
+engine.cfg
+*.json
+.DS_Store

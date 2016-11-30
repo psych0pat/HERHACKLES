@@ -1,0 +1,193 @@
+[gd_scene load_steps=14 format=1]
+
+[ext_resource path="res://scripts/ui/menu.gd" type="Script" id=1]
+[ext_resource path="res://res/backgrounds/titlescreennight.png" type="Texture" id=2]
+[ext_resource path="res://res/ui/button_hover.tres" type="StyleBox" id=3]
+[ext_resource path="res://res/ui/button_pressed.tres" type="StyleBox" id=4]
+[ext_resource path="res://res/ui/button_normal.tres" type="StyleBox" id=5]
+[ext_resource path="res://res/ui/dominica_font_buttons.tres" type="DynamicFont" id=6]
+[ext_resource path="res://res/font/DOMINICA.TTF" type="DynamicFontData" id=7]
+[ext_resource path="res://res/sprites/bird.png" type="Texture" id=8]
+[ext_resource path="res://scenes/hud/title_label.tscn" type="PackedScene" id=9]
+[ext_resource path="res://res/others/dust.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 16
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 7 )
+
+[sub_resource type="ColorRamp" id=2]
+
+offsets = FloatArray( 0, 1 )
+colors = ColorArray( 0.511719, 0.511719, 0.511719, 0.847373, 1, 1, 1, 0 )
+
+[sub_resource type="DynamicFont" id=3]
+
+font/size = 44
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 7 )
+
+[node name="menu" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1280.0
+margin/bottom = 720.0
+script/script = ExtResource( 1 )
+
+[node name="background" type="TextureFrame" parent="."]
+
+rect/scale = Vector2( 0.73, 0.73 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -30.0
+margin/top = -190.0
+margin/right = 1770.0
+margin/bottom = 1090.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+
+[node name="start_button" type="Button" parent="."]
+
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 360.0
+margin/top = 450.0
+margin/right = 580.0
+margin/bottom = 540.0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Start"
+flat = false
+
+[node name="made_by_label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 30.0
+margin/top = 680.0
+margin/right = 240.0
+margin/bottom = 700.0
+custom_fonts/font = SubResource( 1 )
+text = "Made by Patrice.S & Marc.L"
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="birds" type="Particles2D" parent="."]
+
+transform/pos = Vector2( -38, 62 )
+transform/scale = Vector2( -1, 1 )
+config/amount = 30
+config/lifetime = 50.0
+config/half_extents = Vector2( 0, 20 )
+config/explosiveness = 0.2
+config/texture = ExtResource( 8 )
+config/h_frames = 2
+params/direction = 90.0
+params/spread = 5.0
+params/linear_velocity = -30.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 0.1
+params/final_size = 0.1
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/spread = 1.0
+randomness/linear_velocity = 0.1
+randomness/initial_size = 0.5
+color/color = Color( 0.195313, 0.195313, 0.195313, 1 )
+
+[node name="title_label" parent="." instance=ExtResource( 9 )]
+
+margin/bottom = 250.0
+
+[node name="smoke" type="Particles2D" parent="."]
+
+transform/pos = Vector2( 132, 278 )
+config/amount = 10
+config/lifetime = 8.0
+config/time_scale = 0.8
+config/preprocess = 8.0
+config/explosiveness = 0.9
+config/texture = ExtResource( 10 )
+params/direction = 180.0
+params/spread = 10.0
+params/linear_velocity = 10.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 1.5
+params/damping = 0.4
+params/initial_angle = 0.0
+params/initial_size = 0.1
+params/final_size = 0.5
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/direction = 0.1
+randomness/spread = 0.1
+randomness/linear_velocity = 0.1
+color/color_ramp = SubResource( 2 )
+
+[node name="node" type="Node2D" parent="."]
+
+transform/pos = Vector2( 612, 412 )
+
+[node name="start_label" type="Label" parent="node"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -170.0
+margin/top = -70.0
+margin/right = 170.0
+margin/bottom = 60.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+text = "Press Enter to start"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+__meta__ = { "_edit_lock_":true }
+
+[connection signal="pressed" from="start_button" to="." method="_on_Button_pressed"]
+
+

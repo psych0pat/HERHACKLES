@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://scripts/others/spawn_area.gd" type="Script" id=1]
+
+[node name="spawn_area" type="Node2D"]
+
+script/script = ExtResource( 1 )
+randomness = 0
+object_scene_name = "res://scenes/objects/rock.tscn"
+color = Color( 1, 1, 1, 1 )
+time_between_spawn = 2.0
+objects_velocity = Vector2( 0, 300 )
+
+[node name="first_point" type="Position2D" parent="."]
+
+transform/pos = Vector2( -50, 0 )
+
+[node name="second_point" type="Position2D" parent="."]
+
+transform/pos = Vector2( 50, 0 )
+
+[node name="timer" type="Timer" parent="."]
+
+process_mode = 0
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+

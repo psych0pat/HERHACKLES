@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://scripts/objects/axe.gd" type="Script" id=1]
+[ext_resource path="res://res/sprites/axe3.png" type="Texture" id=2]
+[ext_resource path="res://scenes/hud/elements_label.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 43.0
+height = 34.0
+
+[node name="axe" type="Area2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( -4.70373e-08, -1.07609, 1, -4.37114e-08, -4.37115e-08, 149.5 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+damage = 2
+on = true
+rot_speed = 0.1
+
+[node name="sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 0, 91 )
+texture = ExtResource( 2 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="body" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( -4.37115e-08, 149.5 )
+transform/rot = 90.0
+transform/scale = Vector2( 1.07609, 1 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="elements_label" parent="." instance=ExtResource( 3 )]
+
+visibility/visible = false
+
+[node name="timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = true
+autostart = false
+
+[connection signal="body_enter" from="." to="." method="_on_axe_body_enter"]
+
+[connection signal="body_exit" from="." to="." method="_on_axe_body_exit"]
+
+

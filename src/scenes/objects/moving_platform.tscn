@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://scripts/objects/moving_platform.gd" type="Script" id=1]
+[ext_resource path="res://res/tilesets/tilesheetforestfinal.png" type="Texture" id=2]
+[ext_resource path="res://scenes/hud/elements_label.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 96, 19 )
+
+[node name="moving_platform" type="KinematicBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, -10 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.0
+script/script = ExtResource( 1 )
+damage = 10
+on = true
+velocity = Vector2( 0, 0 )
+
+[node name="sprite" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+region = true
+region_rect = Rect2( 192, 320, 192, 64 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+visibility/visible = false
+transform/pos = Vector2( 0, -10 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="elements_label" parent="." instance=ExtResource( 3 )]
+
+

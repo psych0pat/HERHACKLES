@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://scripts/ui/hacking_hud.gd" type="Script" id=1]
+[ext_resource path="res://scripts/others/console.gd" type="Script" id=2]
+[ext_resource path="res://res/font/OS X Darwin.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://res/ui/console_input_focus.tres" type="StyleBox" id=4]
+[ext_resource path="res://res/ui/console_input.tres" type="StyleBox" id=5]
+
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 0, 0, 0, 1 )
+light_color = Color( 0, 0, 0, 1 )
+dark_color = Color( 0, 0, 0, 1 )
+border_size = 0
+border_blend = true
+draw_bg = true
+
+[sub_resource type="DynamicFont" id=2]
+
+font/size = 16
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+
+font/size = 16
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 3 )
+
+[node name="hacking_hud" type="Control"]
+
+process/pause_mode = 2
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+script/script = ExtResource( 1 )
+
+[node name="console" type="Panel" parent="."]
+
+visibility/visible = false
+visibility/self_opacity = 0.9
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 70.0
+margin/right = 350.0
+margin/bottom = 720.0
+custom_styles/panel = SubResource( 1 )
+script/script = ExtResource( 2 )
+
+[node name="timer" type="Timer" parent="console"]
+
+process_mode = 0
+wait_time = 0.2
+one_shot = true
+autostart = false
+
+[node name="output" type="RichTextLabel" parent="console"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 10.0
+margin/top = 10.0
+margin/right = 10.0
+margin/bottom = 40.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_constants/line_separation = 4
+bbcode/enabled = true
+bbcode/bbcode = ""
+visible_characters = -1
+
+[node name="input" type="LineEdit" parent="console"]
+
+anchor/left = 3
+anchor/top = 1
+anchor/right = 3
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 165.0
+margin/top = 30.0
+margin/right = -165.0
+margin/bottom = 10.0
+custom_styles/focus = ExtResource( 4 )
+custom_styles/normal = ExtResource( 5 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/selection_color = Color( 0, 1, 0, 1 )
+custom_colors/cursor_color = Color( 0, 1, 0, 1 )
+placeholder/text = "enter command here"
+placeholder/alpha = 0.6
+max_length = 30
+focus_mode = 2
+caret/caret_blink = false
+caret/caret_blink_speed = 0.65
+
+[connection signal="focus_enter" from="console/input" to="." method="_on_input_focus_enter"]
+
+[connection signal="focus_exit" from="console/input" to="." method="_on_input_focus_exit"]
+
+[connection signal="text_entered" from="console/input" to="console" method="_on_input_text_entered"]
+
+

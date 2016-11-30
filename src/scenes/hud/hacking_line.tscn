@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://res/others/noise.png" type="Texture" id=1]
+[ext_resource path="res://scripts/ui/hacking_line.gd" type="Script" id=2]
+[ext_resource path="res://scenes/effects/hacking_effect.tscn" type="PackedScene" id=3]
+[ext_resource path="res://res/audio/library.tres" type="SampleLibrary" id=4]
+
+[sub_resource type="CanvasItemShader" id=1]
+
+_code = { "fragment":"uniform color line_color;\nuniform texture source;\nuniform float angle;\nuniform vec2 window_size;\n\nvec2 mv = SCREEN_UV * window_size/800;\nmv.y -= cos(angle) * TIME/5;\nmv.x -= sin(angle) * TIME/5;\n\ncolor pixel_color = tex(source, mv);\ncolor new_color = line_color;\nif (pixel_color.b == 0) {\n\tnew_color.a = 0;\n}\n\nCOLOR = new_color;", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+shader/shader = SubResource( 1 )
+shader/shading_mode = 0
+shader_param/line_color = Color( 0, 0, 0, 1 )
+shader_param/source = ExtResource( 1 )
+shader_param/angle = 0.0
+shader_param/window_size = Vector2( 0, 0 )
+
+[node name="hacking_line" type="TextureFrame"]
+
+visibility/opacity = 2.0
+visibility/light_mask = 0
+material/material = SubResource( 2 )
+rect/min_size = Vector2( 1, 1 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1.0
+margin/top = 1.0
+margin/right = 2.0
+margin/bottom = 2.0
+expand = true
+stretch_mode = 0
+script/script = ExtResource( 2 )
+export_target = null
+add_raycast = true
+visible = true
+
+[node name="hacking_effect" parent="." instance=ExtResource( 3 )]
+
+process/pause_mode = 2
+visibility/light_mask = 0
+config/local_space = true
+
+[node name="raycast" type="RayCast2D" parent="."]
+
+visibility/light_mask = 0
+enabled = true
+cast_to = Vector2( 0, 50 )
+layer_mask = 7175
+type_mask = 11
+
+[node name="sounds" type="SamplePlayer2D" parent="."]
+
+process/pause_mode = 2
+params/volume_db = -20.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 3
+config/samples = ExtResource( 4 )
+config/pitch_random = 0.5
+
+

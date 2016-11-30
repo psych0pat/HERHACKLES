@@ -1,0 +1,30 @@
+[gd_scene format=1]
+
+[node name="set_effect" type="Node2D"]
+
+[node name="particles" type="Particles2D" parent="."]
+
+config/amount = 40
+config/lifetime = 2.0
+config/emit_timeout = 2.0
+config/emitting = false
+config/explosiveness = 0.01
+params/direction = 0.0
+params/spread = 180.0
+params/linear_velocity = 45.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 30.0
+params/initial_angle = 0.0
+params/initial_size = 4.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+color/color = Color( 0, 1, 0.367188, 1 )
+
+

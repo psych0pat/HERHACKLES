@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://scripts/others/global_light.gd" type="Script" id=1]
+[ext_resource path="res://res/others/1px_white.png" type="Texture" id=2]
+
+[sub_resource type="CanvasItemShader" id=1]
+
+_code = { "fragment":"COLOR = vec4(texscreen(SCREEN_UV), 1);", "fragment_ofs":0, "light":"", "light_ofs":0, "vertex":"", "vertex_ofs":0 }
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+shader/shader = SubResource( 1 )
+shader/shading_mode = 0
+
+[node name="global_light" type="BackBufferCopy"]
+
+visibility/light_mask = 14
+transform/rot = 0.00963395
+copy_mode = 0
+rect = Rect2( 0, 0, 100, 100 )
+script/script = ExtResource( 1 )
+modulate = Color( 1, 1, 1, 1 )
+
+[node name="canvas_layer" type="CanvasLayer" parent="."]
+
+layer = 0
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="modulate" type="CanvasModulate" parent="canvas_layer"]
+
+visibility/light_mask = 14
+transform/pos = Vector2( 624, 354 )
+transform/scale = Vector2( 20.5, 12.0625 )
+z/z = 1
+color = Color( 0.855469, 0.855469, 0.855469, 1 )
+
+[node name="shader" type="TextureFrame" parent="canvas_layer"]
+
+visibility/opacity = 0.0
+visibility/self_opacity = 0.0
+visibility/light_mask = 14
+material/material = SubResource( 2 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1280.0
+margin/bottom = 720.0
+texture = ExtResource( 2 )
+modulate = Color( 0.0546875, 0.0546875, 0.0546875, 1 )
+stretch_mode = 2
+
+

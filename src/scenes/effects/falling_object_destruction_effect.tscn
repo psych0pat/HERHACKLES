@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://res/sprites/rock_destruction.png" type="Texture" id=1]
+
+[sub_resource type="ColorRamp" id=1]
+
+offsets = FloatArray( 0, 0.807122, 1 )
+colors = ColorArray( 0.757813, 0.54847, 0.325623, 1, 0.617188, 0.548289, 0.474945, 1, 1, 1, 1, 0 )
+
+[node name="destruction_effect" type="Particles2D"]
+
+config/amount = 7
+config/lifetime = 2.0
+config/time_scale = 2.0
+config/emit_timeout = 2.0
+config/emitting = false
+config/offset = Vector2( 5, 0 )
+config/local_space = false
+config/explosiveness = 0.05
+config/texture = ExtResource( 1 )
+config/h_frames = 2
+params/direction = 180.0
+params/spread = 40.0
+params/linear_velocity = 80.0
+params/spin_velocity = 1.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 90.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 180.0
+params/initial_size = 1.0
+params/final_size = 0.5
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/linear_velocity = 0.1
+randomness/spin_velocity = 0.1
+randomness/initial_angle = 1.0
+randomness/initial_size = 1.0
+randomness/final_size = 0.5
+randomness/anim_initial_pos = 1.0
+color/color_ramp = SubResource( 1 )
+
+

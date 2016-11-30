@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://scripts/objects/moving_object.gd" type="Script" id=1]
+[ext_resource path="res://res/sprites/bird.png" type="Texture" id=2]
+[ext_resource path="res://scenes/hud/elements_label.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 19.1047, 4.98882 )
+
+[sub_resource type="Animation" id=2]
+
+length = 1.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ 0, 1 ] }
+
+[node name="bird" type="KinematicBody2D"]
+
+visibility/light_mask = 2
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.104675, 1.98882 )
+shapes/0/trigger = false
+collision/layers = 32
+collision/mask = 32
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+damage = 0
+on = true
+random_rot = false
+destruction_effect_scene = "res://scenes/effects/blood_particles_effect.tscn"
+
+[node name="sprite" type="Sprite" parent="."]
+
+visibility/light_mask = 2
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="animations" type="AnimationPlayer" parent="sprite"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/fly = SubResource( 2 )
+playback/active = true
+playback/speed = 4.0
+blend_times = [  ]
+autoplay = "fly"
+
+[node name="collision" type="CollisionShape2D" parent="."]
+
+transform/pos = Vector2( -0.104675, 1.98882 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="elements_label" parent="." instance=ExtResource( 3 )]
+
+visibility/visible = false
+
+

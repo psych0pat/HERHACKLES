@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://res/sprites/hearts_border.png" type="Texture" id=1]
+[ext_resource path="res://res/sprites/hearts_filled.png" type="Texture" id=2]
+[ext_resource path="res://scripts/ui/player_hp.gd" type="Script" id=3]
+
+[node name="hp" type="TextureProgress"]
+
+process/pause_mode = 2
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 20.0
+margin/top = 20.0
+margin/right = 110.0
+margin/bottom = 40.0
+range/min = 0.0
+range/max = 8.0
+range/step = 1.0
+range/page = 0.0
+range/value = 8.0
+range/exp_edit = false
+range/rounded = false
+texture/under = ExtResource( 1 )
+texture/over = null
+texture/progress = ExtResource( 2 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+script/script = ExtResource( 3 )
+
+

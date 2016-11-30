@@ -1,0 +1,167 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://scripts/ui/gameover.gd" type="Script" id=1]
+[ext_resource path="res://res/others/1px_black.png" type="Texture" id=2]
+[ext_resource path="res://res/ui/dominica_font_titles.tres" type="DynamicFont" id=3]
+[ext_resource path="res://res/ui/button_hover.tres" type="StyleBox" id=4]
+[ext_resource path="res://res/ui/button_pressed.tres" type="StyleBox" id=5]
+[ext_resource path="res://res/ui/button_normal.tres" type="StyleBox" id=6]
+[ext_resource path="res://res/ui/dominica_font_buttons.tres" type="DynamicFont" id=7]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+content_margin/left = -1.0
+content_margin/right = -1.0
+content_margin/top = -1.0
+content_margin/bottom = -1.0
+bg_color = Color( 1, 0.937255, 0.858824, 1 )
+light_color = Color( 0, 0, 0, 1 )
+dark_color = Color( 0, 0, 0, 1 )
+border_size = 10
+border_blend = true
+draw_bg = true
+
+[node name="gameover" type="Control"]
+
+process/pause_mode = 2
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 340.0
+margin/top = 80.0
+margin/right = 340.0
+margin/bottom = 70.0
+script/script = ExtResource( 1 )
+
+[node name="bg" type="TextureFrame" parent="."]
+
+visibility/opacity = 0.4
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -320.0
+margin/top = -80.0
+margin/right = 960.0
+margin/bottom = 640.0
+texture = ExtResource( 2 )
+modulate = Color( 0, 0, 0, 1 )
+stretch_mode = 0
+
+[node name="panel" type="Panel" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="title_label" type="Label" parent="panel"]
+
+anchor/left = 3
+anchor/right = 3
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 275.0
+margin/top = 40.0
+margin/right = -275.0
+margin/bottom = 170.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_as_outline = 1
+text = "GAMEOVER"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="try_again_button" type="Button" parent="panel"]
+
+anchor/top = 3
+anchor/right = 1
+anchor/bottom = 3
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 60.0
+margin/top = -5.0
+margin/right = 60.0
+margin/bottom = -95.0
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color_disabled = Color( 0.652344, 0.652344, 0.652344, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Try Again !"
+flat = false
+
+[node name="main_menu_button" type="Button" parent="panel"]
+
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 60.0
+margin/top = 160.0
+margin/right = 60.0
+margin/bottom = 70.0
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/normal = ExtResource( 6 )
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "Resign"
+flat = false
+
+[node name="try_again_label" type="Label" parent="panel"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 60.0
+margin/top = 180.0
+margin/right = 60.0
+margin/bottom = 320.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[connection signal="pressed" from="panel/try_again_button" to="." method="_on_try_again_button_pressed"]
+
+[connection signal="pressed" from="panel/main_menu_button" to="." method="_on_main_menu_button_pressed"]
+
+

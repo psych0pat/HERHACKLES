@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://scripts/objects/parallax_background.gd" type="Script" id=1]
+[ext_resource path="res://res/others/1px_black.png" type="Texture" id=2]
+
+[node name="parallax_background" type="ParallaxBackground"]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+scroll/offset = Vector2( 0, 0 )
+scroll/base_offset = Vector2( 0, 0 )
+scroll/base_scale = Vector2( 1, 1 )
+scroll/limit_begin = Vector2( 0, 0 )
+scroll/limit_end = Vector2( 0, 0 )
+scroll/ignore_camera_zoom = true
+script/script = ExtResource( 1 )
+texture_name = null
+texture_modulation = Color( 1, 1, 1, 1 )
+offset_y = 0
+
+[node name="texture_frame" type="TextureFrame" parent="."]
+
+visibility/light_mask = 0
+rect/scale = Vector2( 0.9, 0.9 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 2000.0
+margin/bottom = 1280.0
+stretch_mode = 2
+
+[node name="mist" type="TextureFrame" parent="."]
+
+visibility/opacity = 0.2
+visibility/light_mask = 0
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1280.0
+margin/bottom = 720.0
+texture = ExtResource( 2 )
+modulate = Color( 0.988281, 0.988281, 0.988281, 1 )
+stretch_mode = 2
+
+

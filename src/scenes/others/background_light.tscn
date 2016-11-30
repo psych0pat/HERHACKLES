@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://res/others/1px_white.png" type="Texture" id=1]
+
+[node name="background_light" type="TextureFrame"]
+
+visibility/self_opacity = 0.5
+visibility/behind_parent = true
+visibility/light_mask = 14
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1.0
+margin/bottom = 1.0
+texture = ExtResource( 1 )
+modulate = Color( 0, 0, 0, 1 )
+expand = true
+stretch_mode = 0
+
+
