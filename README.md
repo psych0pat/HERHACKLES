@@ -8,7 +8,7 @@ BUT we're in 2016 and in 2016, heroes have exchanged their swords for a more pow
 Ready to hack the game ?
 
 ## How to play
-You can download the game directly from [https://psych0pat.itch.io/herhackles](itch.io). Only Windows/OSX atm.
+You can download the game directly from [itch.io](https://psych0pat.itch.io/herhackles). Only for Windows/OSX atm.
 
 If you're lost, use `help`, `get elements` and `get attr` when you're on the console
 
